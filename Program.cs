@@ -61,10 +61,60 @@ namespace rejtjelezes
                     {
                         //int sorsz = karakterek.IndexOf(karakterek.Substring(j));
                         //Console.Write(sorsz);
-                        Console.Write(j);
+                        //Console.Write(j);
+                        
+                        int m = karakterek.IndexOf(karakterek.Substring(j));
+                        
+                        Console.Write(karakterek[j]);
+                        Console.Write(" --> ");
+                        if (j > 26)
+                        {
+                            Console.Write(j%27);
+                        }
+                        else
+                        {
+                            Console.Write(j);
+                        }
+                        
+                        //Console.Write("\t");
+                        Console.WriteLine(" +");
+                        
+                        
+                        break;
                     }
                 }
             }
+
+
+            /*while (true)
+            {
+                if (word[i] == karakterek[j])
+                {
+                    //int sorsz = karakterek.IndexOf(karakterek.Substring(j));
+                    //Console.Write(sorsz);
+                    Console.Write(j);
+                }
+            }*/
+
+            /*
+             if (word[i] == karakterek[j])
+                    {
+                        //int sorsz = karakterek.IndexOf(karakterek.Substring(j));
+                        //Console.Write(sorsz);
+                        //Console.Write(j);
+                        //int m = karakterek.IndexOf(karakterek.Substring(j));
+                        Console.WriteLine(karakterek[j]);
+                        break;
+                    }
+                    else
+                    {
+                        break;
+                    }
+             */
+
+
+
+
 
             //Console.WriteLine(karakterek);
             #endregion

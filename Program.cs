@@ -50,9 +50,12 @@ namespace rejtjelezes
 
             #endregion
             #region karakterek
-            List<string> kar = new List<string>();
+            List<int> wordn = new List<int>();
+            List<int> keyn = new List<int>();
+            int l;
+            int ll;
             string karakterek = "abcdefghijklmnopqrstuvwxyz";
-
+            //word from here
             for (int i = 0; i < word.Length; i++)
             {
                 for (int j = 0; j < karakterek.Length; j++)
@@ -63,55 +66,94 @@ namespace rejtjelezes
                         //Console.Write(sorsz);
                         //Console.Write(j);
                         
-                        int m = karakterek.IndexOf(karakterek.Substring(j));
+                        //int m = karakterek.IndexOf(karakterek.Substring(j));
                         
                         Console.Write(karakterek[j]);
                         Console.Write(" --> ");
                         if (j > 26)
                         {
-                            Console.Write(j%27);
+                            l = j % 27;
+                            Console.WriteLine(j%27);
                         }
                         else
                         {
-                            Console.Write(j);
+                            Console.WriteLine(j);
+                            l = j;
                         }
-                        
-                        //Console.Write("\t");
-                        Console.WriteLine(" +");
-                        
+                        wordn.Add(l);
                         
                         break;
                     }
                 }
             }
-
-
-            /*while (true)
+            Console.WriteLine("A szó átalakítva.");
+            //key from here
+            for (int i = 0; i < key.Length; i++)
             {
-                if (word[i] == karakterek[j])
+                for (int j = 0; j < karakterek.Length; j++)
                 {
-                    //int sorsz = karakterek.IndexOf(karakterek.Substring(j));
-                    //Console.Write(sorsz);
-                    Console.Write(j);
+                    if (key[i] == karakterek[j])
+                    {
+                        //int m = karakterek.IndexOf(karakterek.Substring(j));
+
+                        Console.Write(karakterek[j]);
+                        Console.Write(" --> ");
+                        if (j > 26)
+                        {
+                            ll = j % 27;
+                            Console.WriteLine(j % 27);
+                        }
+                        else
+                        {
+                            Console.WriteLine(j);
+                            ll = j;
+                        }
+                        keyn.Add(ll);
+
+                        break;
+                    }
+                }
+            }
+            Console.WriteLine("A kulcs átalakítva.");
+
+
+            /*foreach (int a in lettersn)
+            {
+                Console.WriteLine(a);
+            } //for test only
+            */
+
+            /*int a = 0;
+            while (a != wordn.Count)
+            {
+                for (int b = 0; b < keyn.Count; b++)
+                {
+
                 }
             }*/
 
-            /*
-             if (word[i] == karakterek[j])
+            Console.Write("A rejtjelezett üzenet kódja: ");
+
+            int b = 0;
+            for (int a = 0; a < wordn.Count; a++)
+            {
+                while (b != keyn.Count)
+                {
+                    int encryption = wordn[a] + keyn[b];
+                    if (encryption > 26)
                     {
-                        //int sorsz = karakterek.IndexOf(karakterek.Substring(j));
-                        //Console.Write(sorsz);
-                        //Console.Write(j);
-                        //int m = karakterek.IndexOf(karakterek.Substring(j));
-                        Console.WriteLine(karakterek[j]);
-                        break;
+                        Console.WriteLine(encryption % 27);
                     }
                     else
                     {
-                        break;
+                        Console.WriteLine(encryption);
                     }
-             */
+                    b++;
+                    break;
+                }
+            }
 
+            
 
 
 
@@ -120,11 +162,9 @@ namespace rejtjelezes
             #endregion
 
 
-
-
-
-
             Console.ReadKey();
+
+
         }
     }
 }
